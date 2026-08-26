@@ -1,929 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>August 1, 2027</title>
+<title>August 1, 2027</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
 
-    <style>
+* {
+    box-sizing: border-box;
+}
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0;
-            min-height: 100%;
-        }
-
-        body {
-            min-height: 100vh;
-            overflow-x: hidden;
-
-            background:
-                radial-gradient(circle at 50% 45%, #f8f4ec 0%, #eee8dd 100%);
-
-            color: #304967;
-            font-family: 'Montserrat', sans-serif;
-            text-align: center;
-        }
-
-
-        /* =========================
-           BACKGROUND TEXTURE
-        ========================= */
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-
-            background-image:
-                radial-gradient(rgba(80,70,55,0.09) 0.7px, transparent 0.7px);
-
-            background-size: 7px 7px;
-            opacity: 0.35;
-            z-index: 0;
-        }
-
-
-        /* =========================
-           GOLD DUST
-        ========================= */
-
-        .gold-dust {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1;
-
-            background-image:
-                radial-gradient(circle at 18% 25%, #b49a65 0 1px, transparent 1.5px),
-                radial-gradient(circle at 77% 22%, #b49a65 0 1px, transparent 1.5px),
-                radial-gradient(circle at 23% 67%, #b49a65 0 1px, transparent 1.5px),
-                radial-gradient(circle at 81% 72%, #b49a65 0 1px, transparent 1.5px),
-                radial-gradient(circle at 68% 88%, #b49a65 0 1px, transparent 1.5px),
-                radial-gradient(circle at 38% 18%, #b49a65 0 1px, transparent 1.5px);
-
-            opacity: 0.7;
-        }
-
-
-        /* =========================
-           FLOWERS
-        ========================= */
-
-        .flower {
-            position: fixed;
-            width: 190px;
-            height: 190px;
-
-            z-index: 1;
-            pointer-events: none;
-
-            transform-origin: center;
-
-            filter:
-                drop-shadow(0 12px 8px rgba(45, 55, 65, 0.18));
-        }
-
-        .flower::before,
-        .flower::after {
-            content: "";
-            position: absolute;
-            inset: 20px;
-
-            border-radius: 48% 52% 50% 50%;
-
-            background:
-                radial-gradient(
-                    circle at 50% 50%,
-                    #d0b37c 0 7%,
-                    transparent 7.5%
-                ),
-                conic-gradient(
-                    from 10deg,
-                    #405c7c,
-                    #304967,
-                    #506b8b,
-                    #334d6d,
-                    #405c7c
-                );
-
-            box-shadow:
-                inset 8px 8px 15px rgba(255,255,255,0.14),
-                inset -10px -10px 18px rgba(20,35,50,0.18);
-        }
-
-        .flower::after {
-            transform: rotate(45deg) scale(0.82);
-            opacity: 0.95;
-        }
-
-        .flower-center {
-            position: absolute;
-            width: 34px;
-            height: 34px;
-
-            top: 78px;
-            left: 78px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    #d8bd83 0 20%,
-                    #aa8c54 21% 38%,
-                    transparent 40%
-                );
-
-            z-index: 2;
-        }
-
-
-        .flower-left-top {
-            top: -75px;
-            left: -65px;
-            transform: rotate(-20deg);
-        }
-
-        .flower-right-top {
-            top: -70px;
-            right: -65px;
-            transform: rotate(25deg) scale(0.95);
-        }
-
-        .flower-left-bottom {
-            bottom: -80px;
-            left: -55px;
-            transform: rotate(18deg) scale(1.1);
-        }
-
-        .flower-right-bottom {
-            bottom: -80px;
-            right: -65px;
-            transform: rotate(-18deg) scale(0.9);
-        }
-
-
-        /* =========================
-           SAGE LEAVES
-        ========================= */
-
-        .leaf {
-            position: fixed;
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
 
-            width: 80px;
-            height: 38px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #a5aa99,
-                    #747d70
-                );
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
 
-            border-radius: 100% 0 100% 0;
+    background:
+        linear-gradient(
+            rgba(248, 242, 231, 0.88),
+            rgba(248, 242, 231, 0.88)
+        ),
+        url("floral-bg.png");
 
-            opacity: 0.72;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
-            z-index: 1;
-            pointer-events: none;
+    color: #263f5d;
 
-            box-shadow:
-                inset 5px 4px 7px rgba(255,255,255,0.18);
-        }
+    font-family: "Cormorant Garamond", serif;
 
-        .leaf::after {
-            content: "";
-            position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-            width: 70px;
-            height: 1px;
+    padding: 40px 25px;
+}
 
-            background: rgba(235,230,215,0.5);
 
-            top: 19px;
-            left: 5px;
+/* MAIN CONTENT */
 
-            transform: rotate(-25deg);
-        }
+.container {
+    width: min(1100px, 100%);
+    text-align: center;
+}
 
-        .leaf-one {
-            top: 135px;
-            left: 40px;
-            transform: rotate(25deg);
-        }
 
-        .leaf-two {
-            top: 155px;
-            right: 30px;
-            transform: rotate(-35deg);
-        }
+/* DATE */
 
-        .leaf-three {
-            bottom: 170px;
-            left: 45px;
-            transform: rotate(-10deg);
-        }
+.date {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    letter-spacing: 8px;
+    color: #a7864c;
+    margin-bottom: 25px;
+}
 
-        .leaf-four {
-            bottom: 140px;
-            right: 45px;
-            transform: rotate(25deg);
-        }
 
+/* TITLE */
 
-        /* =========================
-           MAIN CONTENT
-        ========================= */
+h1 {
+    margin: 0;
 
-        .container {
-            position: relative;
-            z-index: 5;
+    font-size: clamp(55px, 7vw, 90px);
+    font-weight: 500;
+    line-height: 1;
 
-            min-height: 100vh;
+    color: #294666;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+    text-shadow: 0 2px 8px rgba(60, 70, 80, 0.08);
+}
 
-            padding: 70px 25px;
-        }
 
+/* GOLD DIVIDER */
 
-        /* =========================
-           MUSIC
-        ========================= */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .music {
-            position: fixed;
-            top: 25px;
-            right: 28px;
+    gap: 22px;
 
-            width: 65px;
-            height: 65px;
+    margin: 35px auto 55px;
 
-            border: 1px solid #9e8a61;
-            border-radius: 50%;
+    width: min(600px, 80%);
+}
 
-            background: rgba(255,255,255,0.25);
+.divider::before,
+.divider::after {
+    content: "";
 
-            color: #3b4e65;
+    height: 1px;
+    background: #b89555;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+    flex: 1;
+}
 
-            cursor: pointer;
+.heart {
+    font-size: 28px;
+    color: #b89555;
+}
 
-            z-index: 10;
 
-            transition: 0.3s ease;
-        }
+/* COUNTDOWN */
 
-        .music:hover {
-            transform: scale(1.08);
-            background: rgba(255,255,255,0.5);
-        }
+.countdown {
+    display: grid;
 
-        .music-icon {
-            font-size: 20px;
-            line-height: 20px;
-        }
+    grid-template-columns: repeat(4, 1fr);
 
-        .music-text {
-            font-size: 7px;
-            letter-spacing: 2px;
-            margin-top: 4px;
-        }
+    gap: 24px;
 
+    width: 100%;
+}
 
-        /* =========================
-           DATE
-        ========================= */
 
-        .date {
-            font-size: 14px;
-            letter-spacing: 8px;
+/* COUNTDOWN CARD */
 
-            color: #82734f;
+.card {
+    min-height: 190px;
 
-            margin-bottom: 20px;
+    border: 1px solid rgba(184, 149, 85, 0.65);
 
-            animation: fadeIn 1.5s ease;
-        }
+    border-radius: 25px;
 
+    background: rgba(255, 252, 245, 0.62);
 
-        /* =========================
-           BOW
-        ========================= */
+    backdrop-filter: blur(4px);
 
-        .bow {
-            position: relative;
+    box-shadow:
+        0 12px 35px rgba(80, 70, 50, 0.08),
+        inset 0 0 25px rgba(255,255,255,0.25);
 
-            width: 175px;
-            height: 70px;
+    display: flex;
+    flex-direction: column;
 
-            margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
 
-            animation: floatBow 4s ease-in-out infinite;
-        }
+    transition: transform 0.3s ease;
+}
 
-        .bow-left,
-        .bow-right {
-            position: absolute;
+.card:hover {
+    transform: translateY(-4px);
+}
 
-            top: 8px;
 
-            width: 82px;
-            height: 48px;
+/* NUMBER */
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #7187a0,
-                    #506982
-                );
+.number {
+    font-size: clamp(55px, 6vw, 80px);
 
-            border: 1px solid rgba(50,70,90,0.3);
+    line-height: 1;
 
-            box-shadow:
-                inset 5px 5px 10px rgba(255,255,255,0.18),
-                0 5px 8px rgba(50,60,70,0.12);
-        }
+    font-weight: 500;
 
-        .bow-left {
-            left: 5px;
-            border-radius: 70% 25% 55% 30%;
-            transform: rotate(10deg);
-        }
+    color: #294666;
+}
 
-        .bow-right {
-            right: 5px;
-            border-radius: 25% 70% 30% 55%;
-            transform: rotate(-10deg);
-        }
 
-        .bow-center {
-            position: absolute;
+/* LABEL */
 
-            left: 72px;
-            top: 22px;
+.label {
+    margin-top: 15px;
 
-            width: 32px;
-            height: 32px;
+    font-family: "Montserrat", sans-serif;
 
-            border-radius: 9px;
+    font-size: 13px;
 
-            background: #617a94;
+    letter-spacing: 5px;
 
-            border: 1px solid rgba(50,70,90,0.35);
+    color: #817967;
+}
 
-            z-index: 3;
-        }
 
-        .bow-tail-left,
-        .bow-tail-right {
-            position: absolute;
+/* LITTLE HEART */
 
-            top: 45px;
+.card-heart {
+    margin-top: 18px;
 
-            width: 80px;
-            height: 30px;
+    font-size: 20px;
 
-            background: #617a94;
+    color: #b89555;
+}
 
-            z-index: -1;
-        }
 
-        .bow-tail-left {
-            left: 28px;
-            transform: rotate(20deg);
-            clip-path: polygon(0 0, 100% 35%, 65% 100%, 40% 50%);
-        }
+/* MOBILE */
 
-        .bow-tail-right {
-            right: 28px;
-            transform: rotate(-20deg);
-            clip-path: polygon(0 35%, 100% 0, 60% 50%, 35% 100%);
-        }
+@media (max-width: 700px) {
 
-        @keyframes floatBow {
-            0%, 100% {
-                transform: translateY(0);
-            }
+    body {
+        padding: 30px 18px;
+    }
 
-            50% {
-                transform: translateY(-4px);
-            }
-        }
+    .date {
+        font-size: 12px;
+        letter-spacing: 5px;
+    }
 
+    h1 {
+        font-size: 50px;
+    }
 
-        /* =========================
-           TITLE
-        ========================= */
+    .countdown {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
 
-        h1 {
-            margin: 5px 0 18px;
+    .card {
+        min-height: 150px;
+    }
 
-            font-family: 'Cormorant Garamond', serif;
+    .number {
+        font-size: 55px;
+    }
 
-            font-size: clamp(48px, 7vw, 86px);
+}
 
-            font-weight: 500;
 
-            color: #304967;
+/* VERY SMALL SCREENS */
 
-            letter-spacing: -1px;
+@media (max-width: 400px) {
 
-            text-shadow:
-                1px 1px 0 rgba(255,255,255,0.7);
-        }
+    h1 {
+        font-size: 42px;
+    }
 
+    .number {
+        font-size: 45px;
+    }
 
-        /* =========================
-           DIVIDER
-        ========================= */
+    .label {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
 
-        .divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+}
 
-            gap: 15px;
-
-            width: min(560px, 85%);
-
-            margin-bottom: 45px;
-        }
-
-        .line {
-            height: 1px;
-            flex: 1;
-
-            background: #ad9666;
-            opacity: 0.7;
-        }
-
-        .divider-heart {
-            color: #a58b59;
-            font-size: 25px;
-        }
-
-
-        /* =========================
-           COUNTDOWN
-        ========================= */
-
-        .countdown {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, minmax(130px, 1fr));
-
-            gap: 20px;
-
-            width: min(950px, 95%);
-        }
-
-        .box {
-            min-height: 180px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            background: rgba(255,255,255,0.18);
-
-            border: 1px solid #b8a77e;
-
-            border-radius: 22px;
-
-            box-shadow:
-                0 8px 20px rgba(70,70,60,0.08),
-                inset 0 0 25px rgba(255,255,255,0.18);
-
-            transition: 0.35s ease;
-        }
-
-        .box:hover {
-            transform: translateY(-5px);
-
-            background: rgba(255,255,255,0.35);
-
-            box-shadow:
-                0 14px 30px rgba(70,70,60,0.12);
-        }
-
-        .number {
-            font-family: 'Cormorant Garamond', serif;
-
-            font-size: clamp(55px, 6vw, 76px);
-
-            font-weight: 500;
-
-            color: #304967;
-
-            line-height: 1;
-        }
-
-        .label {
-            margin-top: 15px;
-
-            font-size: 11px;
-
-            letter-spacing: 4px;
-
-            color: #635f50;
-        }
-
-        .tiny-heart {
-            margin-top: 16px;
-
-            color: #ad9666;
-
-            font-size: 15px;
-        }
-
-
-        /* =========================
-           FADE
-        ========================= */
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            body {
-                overflow-y: auto;
-            }
-
-            .container {
-                padding: 75px 18px 50px;
-            }
-
-            .music {
-                width: 55px;
-                height: 55px;
-
-                top: 15px;
-                right: 15px;
-            }
-
-            .bow {
-                transform: scale(0.8);
-                margin-bottom: -2px;
-            }
-
-            .date {
-                font-size: 11px;
-                letter-spacing: 5px;
-            }
-
-            h1 {
-                font-size: 48px;
-                line-height: 0.95;
-
-                margin-bottom: 18px;
-            }
-
-            .divider {
-                margin-bottom: 28px;
-            }
-
-            .countdown {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                width: 100%;
-            }
-
-            .box {
-                min-height: 145px;
-                border-radius: 18px;
-            }
-
-            .number {
-                font-size: 53px;
-            }
-
-            .label {
-                font-size: 9px;
-                letter-spacing: 3px;
-            }
-
-            .flower {
-                width: 120px;
-                height: 120px;
-            }
-
-            .flower-center {
-                width: 24px;
-                height: 24px;
-                top: 48px;
-                left: 48px;
-            }
-
-            .leaf {
-                transform: scale(0.7);
-            }
-        }
-
-    </style>
+</style>
 </head>
 
 
 <body>
 
-    <div class="gold-dust"></div>
+<div class="container">
 
-
-    <!-- Decorative flowers -->
-
-    <div class="flower flower-left-top">
-        <div class="flower-center"></div>
-    </div>
-
-    <div class="flower flower-right-top">
-        <div class="flower-center"></div>
-    </div>
-
-    <div class="flower flower-left-bottom">
-        <div class="flower-center"></div>
-    </div>
-
-    <div class="flower flower-right-bottom">
-        <div class="flower-center"></div>
+    <div class="date">
+        ♡ &nbsp; 01 · 08 · 2027 &nbsp; ♡
     </div>
 
 
-    <!-- Decorative leaves -->
-
-    <div class="leaf leaf-one"></div>
-    <div class="leaf leaf-two"></div>
-    <div class="leaf leaf-three"></div>
-    <div class="leaf leaf-four"></div>
+    <h1>
+        Until August 1st...
+    </h1>
 
 
-    <!-- Music button -->
-
-    <button class="music" onclick="toggleMusic()">
-        <div class="music-icon">♫</div>
-        <div class="music-text">MUSIC</div>
-    </button>
+    <div class="divider">
+        <div class="heart">♡</div>
+    </div>
 
 
-    <!-- Main -->
+    <div class="countdown">
 
-    <main class="container">
-
-
-        <!-- Bow -->
-
-        <div class="bow">
-
-            <div class="bow-left"></div>
-            <div class="bow-right"></div>
-
-            <div class="bow-center"></div>
-
-            <div class="bow-tail-left"></div>
-            <div class="bow-tail-right"></div>
-
+        <div class="card">
+            <div class="number" id="days">000</div>
+            <div class="label">DAYS</div>
+            <div class="card-heart">♡</div>
         </div>
 
 
-        <!-- Date -->
-
-        <div class="date">
-            ♡ &nbsp; 01 · 08 · 2027 &nbsp; ♡
+        <div class="card">
+            <div class="number" id="hours">00</div>
+            <div class="label">HOURS</div>
+            <div class="card-heart">♡</div>
         </div>
 
 
-        <!-- Title -->
-
-        <h1>
-            Until August 1st...
-        </h1>
-
-
-        <!-- Divider -->
-
-        <div class="divider">
-
-            <div class="line"></div>
-
-            <div class="divider-heart">
-                ♡
-            </div>
-
-            <div class="line"></div>
-
+        <div class="card">
+            <div class="number" id="minutes">00</div>
+            <div class="label">MINUTES</div>
+            <div class="card-heart">♡</div>
         </div>
 
 
-        <!-- Countdown -->
-
-        <div class="countdown">
-
-
-            <div class="box">
-
-                <div class="number" id="days">
-                    0
-                </div>
-
-                <div class="label">
-                    DAYS
-                </div>
-
-                <div class="tiny-heart">
-                    ♡
-                </div>
-
-            </div>
-
-
-            <div class="box">
-
-                <div class="number" id="hours">
-                    0
-                </div>
-
-                <div class="label">
-                    HOURS
-                </div>
-
-                <div class="tiny-heart">
-                    ♡
-                </div>
-
-            </div>
-
-
-            <div class="box">
-
-                <div class="number" id="minutes">
-                    0
-                </div>
-
-                <div class="label">
-                    MINUTES
-                </div>
-
-                <div class="tiny-heart">
-                    ♡
-                </div>
-
-            </div>
-
-
-            <div class="box">
-
-                <div class="number" id="seconds">
-                    0
-                </div>
-
-                <div class="label">
-                    SECONDS
-                </div>
-
-                <div class="tiny-heart">
-                    ♡
-                </div>
-
-            </div>
-
-
+        <div class="card">
+            <div class="number" id="seconds">00</div>
+            <div class="label">SECONDS</div>
+            <div class="card-heart">♡</div>
         </div>
 
-    </main>
+    </div>
+
+</div>
 
 
-    <script>
+<script>
 
-        /* =========================
-           COUNTDOWN
-        ========================= */
-
-        const targetDate =
-            new Date("August 1, 2027 00:00:00").getTime();
+const targetDate =
+    new Date("August 1, 2027 00:00:00").getTime();
 
 
-        function updateCountdown() {
+function updateCountdown() {
 
-            const now =
-                new Date().getTime();
+    const now = new Date().getTime();
 
-            const difference =
-                targetDate - now;
+    const difference = targetDate - now;
 
 
-            if (difference <= 0) {
+    if (difference <= 0) {
 
-                document.getElementById("days").innerHTML = "0";
-                document.getElementById("hours").innerHTML = "0";
-                document.getElementById("minutes").innerHTML = "0";
-                document.getElementById("seconds").innerHTML = "0";
+        document.getElementById("days").innerHTML = "00";
+        document.getElementById("hours").innerHTML = "00";
+        document.getElementById("minutes").innerHTML = "00";
+        document.getElementById("seconds").innerHTML = "00";
 
-                return;
-            }
-
-
-            const days =
-                Math.floor(
-                    difference /
-                    (1000 * 60 * 60 * 24)
-                );
+        return;
+    }
 
 
-            const hours =
-                Math.floor(
-                    (difference %
-                    (1000 * 60 * 60 * 24))
-                    /
-                    (1000 * 60 * 60)
-                );
+    const days =
+        Math.floor(
+            difference / (1000 * 60 * 60 * 24)
+        );
 
 
-            const minutes =
-                Math.floor(
-                    (difference %
-                    (1000 * 60 * 60))
-                    /
-                    (1000 * 60)
-                );
+    const hours =
+        Math.floor(
+            (difference % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
 
 
-            const seconds =
-                Math.floor(
-                    (difference %
-                    (1000 * 60))
-                    /
-                    1000
-                );
+    const minutes =
+        Math.floor(
+            (difference % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
 
 
-            document.getElementById("days").innerHTML =
-                days;
-
-            document.getElementById("hours").innerHTML =
-                String(hours).padStart(2, "0");
-
-            document.getElementById("minutes").innerHTML =
-                String(minutes).padStart(2, "0");
-
-            document.getElementById("seconds").innerHTML =
-                String(seconds).padStart(2, "0");
-        }
+    const seconds =
+        Math.floor(
+            (difference % (1000 * 60))
+            / 1000
+        );
 
 
-        updateCountdown();
+    document.getElementById("days").innerHTML =
+        days;
 
-        setInterval(updateCountdown, 1000);
+
+    document.getElementById("hours").innerHTML =
+        String(hours).padStart(2, "0");
 
 
-        /* =========================
-           MUSIC BUTTON
-        ========================= */
+    document.getElementById("minutes").innerHTML =
+        String(minutes).padStart(2, "0");
 
-        function toggleMusic() {
 
-            alert(
-                "Music can be added here once you upload your song."
-            );
+    document.getElementById("seconds").innerHTML =
+        String(seconds).padStart(2, "0");
 
-        }
+}
 
-    </script>
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+</script>
 
 </body>
-
 </html>
